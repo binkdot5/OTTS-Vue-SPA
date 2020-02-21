@@ -1,0 +1,10 @@
+.hidden {
+  display: none; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #040404;
+  font-family: 'Montserrat', Helvetica, sans-serif; 
+}
