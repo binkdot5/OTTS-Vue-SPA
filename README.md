@@ -4,6 +4,7 @@
  cd into directory
 
  npm intall
- npm run serve
+
+ npm run dev
  
  or use 'vue ui'
