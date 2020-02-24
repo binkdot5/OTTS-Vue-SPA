@@ -2,9 +2,14 @@
   <div class="movies">
     <ul>
       <li class="movieBox">
-        <img :src="poster" alt="#" />
-        <h3>{{ movieSingle.movie.title }}</h3>
-        <h3>{{ movieSingle.movie.ids.imdb }}</h3>
+        <img :src="finishedURL" alt="#" />
+        <h3>{{ movieSingle.movie.title }} ({{ movieSingle.movie.year }})</h3>
+        <p>
+          <router-link :to="`/movies/${movieSingle.movie.ids.slug}`"
+            >More Details</router-link
+          >
+        </p>
+        <h3 class="hidden" ref="value">{{ movieSingle.movie.ids.imdb }}</h3>
       </li>
     </ul>
   </div>
@@ -14,10 +19,18 @@
 // import axios from "axios";
 export default {
   props: ["movieSingle"],
-  computed: {
-    poster: function() {
-      return `http://img.omdbapi.com/?apikey=a4041903&i=tt2584384`;
-    }
+  data() {
+    return {
+      baseURL: "http://img.omdbapi.com/?apikey=a4041903&i=",
+      posterURL: "",
+      finishedURL: ""
+    };
+  },
+  mounted() {
+    this.posterURL = this.baseURL + this.$refs.value.innerText;
+    // console.log(this.posterURL);
+    this.finishedURL = this.posterURL;
+    // console.log(this.finishedURL);
   }
 };
 </script>
@@ -32,8 +45,6 @@ h3 {
 }
 
 .movies {
-  position: relative;
-  left: 5%;
   display: inline-block;
 }
 
@@ -43,15 +54,15 @@ ul {
 }
 
 .movieBox {
-  padding: 50px;
+  padding: 25px;
   margin: 25px;
   background-color: #f24c27;
   display: inline-block;
-}
-
-.movieBox:hover {
-  color: #000;
-  background-color: #fff;
+  :hover {
+    background-color: #fff;
+    color: #000;
+    // background-color: #fff;
+  }
 }
 
 img {

@@ -2,9 +2,13 @@
   display: none; 
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #040404;
+  background-color: #fff;
   font-family: 'Montserrat', Helvetica, sans-serif; 
 }

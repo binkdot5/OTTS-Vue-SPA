@@ -19,7 +19,7 @@ const headers = {
     "0424499b3bbaf949c7fbd2c493612e8248b789a0f64361264d5d931dd00673ec"
 };
 const params = {
-  limit: 9
+  limit: 12
 };
 export default {
   data() {
@@ -53,12 +53,18 @@ export default {
   border: 1rem solid;
   border-color: #f24c27;
 }
+
+#mainCon {
+  max-width: 100%;
+}
+
 #logo {
   width: 100px;
 }
 
 nav {
-  background-color: #fff;
+  background-color: #040404;
+  color: #fff;
   padding: 20px;
   display: flex;
   grid-auto-columns: 1fr 1fr;
@@ -66,7 +72,7 @@ nav {
 
 footer {
   color: #fff;
-  background-color: #191919;
+  background-color: #f24c27;
   height: 100px;
   margin-top: 40px;
 }
