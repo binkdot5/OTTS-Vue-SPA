@@ -8,6 +8,8 @@
     <p>{{ moviedetails.overview }}</p>
     <h3>Ratings: {{ moviedetails.rating }}</h3>
     <h4>Genres: {{ moviedetails.genres }}</h4>
+    <h4>Release Date: {{ moviedetails.released }}</h4>
+    <h4>Website: {{ moviedetails.homepage }}</h4>
     <p class="hidden" ref="value">{{ moviedetails.ids.imdb }}</p>
     <p>
       <router-link to="/movies"> Back to Movies </router-link>
@@ -23,9 +25,6 @@ const headers = {
   "Trakt-Api-Key":
     "0424499b3bbaf949c7fbd2c493612e8248b789a0f64361264d5d931dd00673ec"
 };
-const params = {
-  limit: 12
-};
 export default {
   data() {
     return {
@@ -40,7 +39,6 @@ export default {
     let id = this.$route.params.id;
     axios
       .get(`https://api.trakt.tv/movies/${id}?extended=full`, {
-        params,
         headers
       })
       .then(function(response) {

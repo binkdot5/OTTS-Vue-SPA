@@ -1,9 +1,11 @@
 <template>
   <div id="mainCon">
+    <h1 class="hidden">VUE SPA App with Trakt API</h1>
     <nav>
+      <h2 class="hidden">Navigation</h2>
       <img id="logo" alt="OTST logo" src="./assets/otst-logo.png" />
     </nav>
-    <router-view v-bind:movies="theMovies" the-title="Movies" />
+    <router-view v-bind:movies="theMovies" the-title="box office" />
     <footer>
       <h2 class="hidden">OTST Footer</h2>
     </footer>
@@ -19,7 +21,7 @@ const headers = {
     "0424499b3bbaf949c7fbd2c493612e8248b789a0f64361264d5d931dd00673ec"
 };
 const params = {
-  limit: 12
+  limit: 10 // api/movies/boxoffice will only return 10 items.
 };
 export default {
   data() {
@@ -30,12 +32,13 @@ export default {
   created() {
     var vm = this;
     axios
-      .get("https://api.trakt.tv/movies/trending", {
+      .get("https://api.trakt.tv/movies/boxoffice", {
         params,
         headers
       })
       .then(function(response) {
         vm.theMovies = response.data;
+        console.log(vm.theMovies);
       })
       .catch(function(error) {
         console.log(error);

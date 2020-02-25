@@ -1,3 +1,4 @@
+@@ -1,122 +0,0 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>

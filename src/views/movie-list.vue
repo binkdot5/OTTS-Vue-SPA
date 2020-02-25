@@ -26,9 +26,36 @@ export default {
 .navHeading {
   text-transform: lowercase;
   font-size: 45px;
-  color: #040404;
+  color: #fff;
   position: absolute;
   top: -35px;
   right: 50px;
+}
+
+/* iPhone 6/7/8 Screen Size */
+@media only screen and (max-width: 375px) {
+  .navHeading {
+    font-size: 28px;
+    position: absolute;
+    top: 0px;
+  }
+}
+
+/* iPhone 6/7/8 Plus Screen Size */
+@media screen and (max-width: 414px) and (min-width: 376px) {
+  .navHeading {
+    font-size: 28px;
+    position: absolute;
+    top: 0px;
+  }
+}
+
+/* Kindle/iPad Portrait */
+@media screen and (min-width: 800px) {
+  .navHeading {
+    font-size: 28px;
+    position: absolute;
+    top: 0px;
+  }
 }
 </style>
