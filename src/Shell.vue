@@ -7,7 +7,10 @@
     </nav>
     <router-view v-bind:movies="theMovies" the-title="box office" />
     <footer>
-      <h2 class="hidden">OTST Footer</h2>
+      <h4>
+        OTST is powered by Trakt API. <br />
+        Images are fetched by OMDB
+      </h4>
     </footer>
   </div>
 </template>
@@ -77,6 +80,10 @@ footer {
   color: #fff;
   background-color: #f24c27;
   height: 100px;
-  margin-top: 40px;
+  text-align: center;
+
+  h4 {
+    padding-top: 40px;
+  }
 }
 </style>
