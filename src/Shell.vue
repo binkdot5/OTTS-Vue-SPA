@@ -1,5 +1,5 @@
 <template>
-  <div id="mainCon">
+  <main id="mainCon">
     <h1 class="hidden">VUE SPA App with Trakt API</h1>
     <nav>
       <h2 class="hidden">Navigation</h2>
@@ -12,7 +12,7 @@
         Images are fetched by OMDB
       </h4>
     </footer>
-  </div>
+  </main>
 </template>
 
 <script>
