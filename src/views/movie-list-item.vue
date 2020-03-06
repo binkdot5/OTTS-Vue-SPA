@@ -1,8 +1,8 @@
 <template>
-  <div class="movies">
+  <div>
     <h2 class="hidden">Movie List</h2>
     <li class="movieBox">
-      <img :src="finishedURL" alt="#" />
+      <img :src="finishedURL" alt="movie-poster" />
       <h3>{{ movieSingle.movie.title }} ({{ movieSingle.movie.year }})</h3>
       <p>
         <router-link :to="`/movies/${movieSingle.movie.ids.slug}`"
@@ -45,14 +45,9 @@ h3 {
   color: #ffffff;
 }
 
-.movies {
-  display: inline-block;
-  padding-left: 40px;
-}
-
 .movieBox {
   list-style: none;
-  max-width: 265px;
+  max-width: 33.5vh;
   padding: 25px;
   margin: 20px;
   background-color: #f24c27;
@@ -64,34 +59,34 @@ h3 {
 }
 
 img {
-  height: 400px;
+  height: 50vh;
 }
 
-/* iPhone 6/7/8 Screen Size */
-@media only screen and (max-width: 375px) {
-  img {
-    height: 400px;
-  }
-  .movieBox {
-    position: relative;
-    left: -30px;
-  }
-  .movies {
-    padding-left: 0px;
-  }
-}
+// /* iPhone 6/7/8 Screen Size */
+// @media only screen and (max-width: 375px) {
+//   img {
+//     height: 400px;
+//   }
+//   .movieBox {
+//     position: relative;
+//     left: -30px;
+//   }
+//   .movies {
+//     padding-left: 0px;
+//   }
+// }
 
-/* iPhone 6/7/8 Plus Screen Size */
-@media screen and (max-width: 414px) and (min-width: 376px) {
-  img {
-    height: 400px;
-  }
-  .movieBox {
-    position: relative;
-    left: -10px;
-  }
-  .movies {
-    padding-left: 0px;
-  }
-}
+// /* iPhone 6/7/8 Plus Screen Size */
+// @media screen and (max-width: 414px) and (min-width: 376px) {
+//   img {
+//     height: 400px;
+//   }
+//   .movieBox {
+//     position: relative;
+//     left: -10px;
+//   }
+//   .movies {
+//     padding-left: 0px;
+//   }
+// }
 </style>

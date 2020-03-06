@@ -1,7 +1,7 @@
 <template>
-  <div id="movies">
+  <div>
     <h5 class="navHeading">{{ theTitle }}</h5>
-    <ul>
+    <ul class="layout">
       <movie-list-item
         v-bind:movieSingle="movie"
         v-for="movie in movies"
@@ -23,6 +23,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-left: 210px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 .navHeading {
   text-transform: lowercase;
   font-size: 45px;
@@ -32,28 +43,46 @@ export default {
   right: 50px;
 }
 
-/* iPhone 6/7/8 Screen Size */
-@media only screen and (max-width: 375px) {
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    max-width: 375px;
+    margin: 0 auto;
+  }
   .navHeading {
-    font-size: 28px;
+    font-size: 26px;
+    position: absolute;
+    top: 10px;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .navHeading {
+    font-size: 26px;
     position: absolute;
     top: 0px;
   }
 }
 
-/* iPhone 6/7/8 Plus Screen Size */
-@media screen and (max-width: 414px) and (min-width: 376px) {
-  .navHeading {
-    font-size: 28px;
-    position: absolute;
-    top: 0px;
+// Large devices (desktops, less than 1200px)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .layout {
+    margin: 0 auto;
+    margin-left: 40px;
   }
-}
-
-/* Kindle/iPad Portrait */
-@media screen and (min-width: 800px) {
   .navHeading {
-    font-size: 28px;
+    font-size: 26px;
     position: absolute;
     top: 0px;
   }
