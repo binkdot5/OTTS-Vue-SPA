@@ -5,6 +5,6 @@
 
  npm intall
 
- npm run dev
+ npm run serve
  
  or use 'vue ui'
