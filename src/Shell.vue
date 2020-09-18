@@ -24,7 +24,7 @@ const headers = {
     "0424499b3bbaf949c7fbd2c493612e8248b789a0f64361264d5d931dd00673ec"
 };
 const params = {
-  limit: 10 // api/movies/boxoffice will only return 10 items.
+  limit: 120 // api/movies/boxoffice will only return 10 items.
 };
 export default {
   data() {

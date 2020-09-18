@@ -1,7 +1,12 @@
 <template>
   <div id="movieDetail">
     <h2 class="hidden">Movie Details</h2>
-    <img :src="prcsdURL" alt="movie-poster" />
+    <img
+      class="fallbackImg"
+      :src="prcsdURL"
+      onerror="if (this.src != 'error.jpg') this.src = 'https://popcornusa.s3.amazonaws.com/gallery/1576022750-nobody.png';"
+      alt="movie-poster"
+    />
     <h2>{{ moviedetails.title }}</h2>
     <h3>Movie Year: {{ moviedetails.year }}</h3>
     <p>Description:</p>
@@ -69,5 +74,11 @@ export default {
   height: auto;
   padding: 25px;
   margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+img.fallbackImg {
+  max-width: 24vh;
+  height: auto;
 }
 </style>
