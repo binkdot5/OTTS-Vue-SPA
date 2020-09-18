@@ -1,42 +1,62 @@
 <template>
-  <div>
-    <h2 class="hidden">Movie List</h2>
-    <li class="movieBox">
-      <img :src="finishedURL" alt="movie-poster" />
-      <h3>{{ movieSingle.movie.title }} ({{ movieSingle.movie.year }})</h3>
-      <p>
-        <router-link :to="`/movies/${movieSingle.movie.ids.slug}`"
-          >More Details</router-link
-        >
-      </p>
-      <h3 class="hidden" ref="value">{{ movieSingle.movie.ids.imdb }}</h3>
-    </li>
+  <div class="row">
+    <div class="col">
+      <h2 class="hidden">Movie List</h2>
+      <li class="movieBox">
+        <img :src="finishedURL" alt="movie-poster" />
+        <h3>{{ movieSingle.movie.title }} ({{ movieSingle.movie.year }})</h3>
+        <p>
+          <router-link :to="`/movies/${movieSingle.movie.ids.slug}`"
+            >More Details</router-link
+          >
+        </p>
+        <h3 class="hidden" ref="value">{{ movieSingle.movie.ids.imdb }}</h3>
+      </li>
+    </div>
   </div>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   props: ["movieSingle"],
   data() {
     return {
-      baseURL: "http://img.omdbapi.com/?apikey=a4041903&i=",
-      posterURL: "",
+      baseURL: "http://webservice.fanart.tv/v3/movies/",
+      apiKey: "?api_key=7694c061ed8da9f133ccea4323e7ce26",
+      imdbID: "",
       finishedURL: "",
+      fanArt: "",
       fallBack:
         "https://popcornusa.s3.amazonaws.com/gallery/1576022750-nobody.png"
     };
   },
   mounted() {
-    this.posterURL = this.$refs.value.innerText;
-    console.log(this.posterURL);
-    if (this.posterURL === "") {
+    this.imdbID = this.$refs.value.innerText;
+    // console.log(this.imdbID);
+    if (this.posterURL == "") {
       this.finishedURL = this.fallBack;
     } else {
-      this.finishedURL = this.baseURL + this.posterURL;
+      this.finishedURL = this.baseURL + this.imdbID + this.apiKey;
     }
-    // console.log(this.finishedURL);
+    function urlCall(finishedURL) {
+      var httpreq = new XMLHttpRequest();
+      httpreq.open("GET", finishedURL, false);
+      httpreq.send(null);
+      
   }
+  // created() {
+  //   var vm = this;
+  //   axios
+  //     .get(this.finishedURL)
+  //     .then(function(response) {
+  //       vm.fanArt = response;
+  //       console.log(vm.fanArt);
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
+  // }
 };
 </script>
 
@@ -77,7 +97,7 @@ img {
 // }
 
 // /* iPhone 6/7/8 Plus Screen Size */
-// @media screen and (max-width: 414px) and (min-width: 376px) {
+// @media screen (max-width: 414px) and (min-width: 376px) {
 //   img {
 //     height: 400px;
 //   }

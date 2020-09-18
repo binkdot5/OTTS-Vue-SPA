@@ -35,7 +35,7 @@ export default {
   created() {
     var vm = this;
     axios
-      .get("https://api.trakt.tv/movies/boxoffice", {
+      .get("https://api.trakt.tv/movies/trending", {
         params,
         headers
       })
