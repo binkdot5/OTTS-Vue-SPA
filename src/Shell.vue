@@ -1,5 +1,5 @@
 <template>
-  <main id="mainCon">
+  <main id="app mainCon">
     <h1 class="hidden">VUE SPA App with Trakt API</h1>
     <nav>
       <h2 class="hidden">Navigation</h2>
@@ -20,8 +20,7 @@ import axios from "axios";
 const headers = {
   "Content-Type": "application/json",
   "Trakt-Api-Version": "2",
-  "Trakt-Api-Key":
-    "0424499b3bbaf949c7fbd2c493612e8248b789a0f64361264d5d931dd00673ec"
+  "Trakt-Api-Key": process.env.TRAKT_KEY
 };
 const params = {
   limit: 120 // api/movies/boxoffice will only return 10 items.
@@ -35,7 +34,7 @@ export default {
   created() {
     var vm = this;
     axios
-      .get("https://api.trakt.tv/movies/trending", {
+      .get("https://api.trakt.tv/movies/recommended/weekly", {
         params,
         headers
       })
@@ -57,7 +56,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
   border: 1rem solid;
-  border-color: #f24c27;
+  background-color: #040404;
 }
 
 #mainCon {

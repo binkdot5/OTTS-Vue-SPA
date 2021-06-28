@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <h5 class="navHeading">{{ theTitle }}</h5>
-    <ul class="layout">
-      <movie-list-item
-        v-bind:movieSingle="movie"
-        v-for="movie in movies"
-        v-bind:key="movie.title"
-      />
-    </ul>
+  <div class="movie-list">
+    <h5 class="nav-heading">{{ theTitle }}</h5>
+    <div class="list-container">
+      <ul class="layout">
+        <movie-list-item
+          v-bind:movieSingle="movie"
+          v-for="movie in movies"
+          v-bind:key="movie.title"
+        />
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -25,16 +27,14 @@ export default {
 <style lang="scss" scoped>
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  max-width: 900px;
-  margin: 0 auto;
-  margin-left: 210px;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.navHeading {
+.nav-heading {
   text-transform: lowercase;
   font-size: 45px;
   color: #fff;
@@ -43,16 +43,23 @@ export default {
   right: 50px;
 }
 
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
   .layout {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    max-width: 375px;
+    //max-width: 375px;
     margin: 0 auto;
   }
-  .navHeading {
+  .nav-heading {
     font-size: 26px;
     position: absolute;
     top: 10px;
@@ -65,10 +72,10 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    max-width: 750px;
+    //max-width: 750px;
     margin: 0 auto;
   }
-  .navHeading {
+  .nav-heading {
     font-size: 26px;
     position: absolute;
     top: 0px;
@@ -78,10 +85,14 @@ export default {
 // Large devices (desktops, less than 1200px)
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .layout {
-    margin: 0 auto;
-    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    //max-width: 900px;
+    margin: 0;
+    padding: 0;
   }
-  .navHeading {
+  .nav-heading {
     font-size: 26px;
     position: absolute;
     top: 0px;

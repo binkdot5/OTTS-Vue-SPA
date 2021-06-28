@@ -1,6 +1,12 @@
 <template>
   <div id="movieDetail">
     <h2 class="hidden">Movie Details</h2>
+    <p>
+      <router-link class="back-button" to="/movies">
+        Back to Movies
+      </router-link>
+    </p>
+    <pre></pre>
     <img
       class="fallbackImg"
       :src="prcsdURL"
@@ -16,9 +22,6 @@
     <h4>Release Date: {{ moviedetails.released }}</h4>
     <h4>Website: {{ moviedetails.homepage }}</h4>
     <p class="hidden" ref="value">{{ moviedetails.ids.imdb }}</p>
-    <p>
-      <router-link to="/movies"> Back to Movies </router-link>
-    </p>
   </div>
 </template>
 
@@ -75,6 +78,21 @@ export default {
   padding: 25px;
   margin: 0 auto;
   margin-bottom: 60px;
+}
+
+.back-button {
+  max-width: 2rem;
+  padding: 1rem;
+  text-decoration: none;
+  color: #000;
+  //background-color: #fff;
+
+  :hover {
+    border-color: #000;
+    color: #fff;
+    border-style: solid;
+    border-width: 2px;
+  }
 }
 
 img.fallbackImg {

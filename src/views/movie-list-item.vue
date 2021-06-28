@@ -8,10 +8,10 @@
           onerror="if (this.src != 'error.jpg') this.src = 'https://popcornusa.s3.amazonaws.com/gallery/1576022750-nobody.png';"
           alt="movie-poster"
         />
-        <h3>{{ movieSingle.movie.title }} ({{ movieSingle.movie.year }})</h3>
+        <h5>{{ movieSingle.movie.title }} ({{ movieSingle.movie.year }})</h5>
         <p>
           <router-link :to="`/movies/${movieSingle.movie.ids.slug}`"
-            >More Details</router-link
+            >Details</router-link
           >
         </p>
         <h3 class="hidden" ref="value">{{ movieSingle.movie.ids.imdb }}</h3>
@@ -71,19 +71,37 @@ h3 {
 
 .movieBox {
   list-style: none;
-  max-width: 33.5vh;
+  max-width: 14rem;
   padding: 25px;
   margin: 20px;
-  background-color: #f24c27;
+  background-color: #000;
+  min-height: auto;
   h3 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  h5 {
+    color: #f24c27;
+  }
+
+  a {
+    color: #000;
+    padding: 1rem;
+    font-size: 0.6rem;
+    text-decoration: none;
+    background-color: #fff;
+  }
+
+  a:hover {
+    background-color: #f24c27;
+    color: #fff;
+  }
 }
 
 img {
-  height: 50vh;
+  height: 20.5rem;
 }
 
 /* iPhone 6/7/8 Screen Size */
